@@ -1,0 +1,50 @@
+name: Refresh stats card
+
+on:
+  schedule:
+    # Once a day is plenty; the numbers do not move faster than that.
+    - cron: "17 4 * * *"
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/build-stats.mjs'
+      - '.github/workflows/stats.yml'
+
+# Only the default token is used, and only to read public data.
+permissions:
+  contents: write
+
+concurrency:
+  group: stats
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Render assets/stats.svg
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PROFILE_LOGIN: ${{ github.repository_owner }}
+        run: node scripts/build-stats.mjs
+
+      - name: Commit if the card changed
+        run: |
+          if [[ -z "$(git status --porcelain assets/stats.svg)" ]]; then
+            echo "No change to the stats card."
+            exit 0
+          fi
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/stats.svg
+          git commit -m "Refresh stats card"
+          git push

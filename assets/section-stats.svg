@@ -1,0 +1,30 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 52" width="1200" height="52" role="img" aria-label="Stats">
+  <title>Stats</title>
+  <defs>
+    <!-- Hairline that glows violet at its centre, transparent at both ends so it
+         reads on either the light or dark GitHub background. -->
+    <linearGradient id="line" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#8d7bf2" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#a897ff" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#8d7bf2" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="halo" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#8d7bf2" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#8d7bf2" stop-opacity="0.45"/>
+      <stop offset="100%" stop-color="#8d7bf2" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="soft" x="-10%" y="-300%" width="120%" height="700%">
+      <feGaussianBlur stdDeviation="2.5"/>
+    </filter>
+  </defs>
+
+  <!-- Violet rather than off-white: the accent is the one colour that stays
+       legible on both the light and dark GitHub themes. -->
+  <text x="0" y="30" fill="#a897ff"
+        font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif"
+        font-size="27" font-weight="600" letter-spacing="-0.4">Stats</text>
+
+  <rect x="0" y="44" width="1200" height="4" fill="url(#halo)" filter="url(#soft)"/>
+  <rect x="0" y="45.5" width="1200" height="1.6" fill="url(#line)"/>
+</svg>
+

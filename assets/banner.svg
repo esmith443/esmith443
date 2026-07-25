@@ -1,5 +1,38 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 240" width="1200" height="240" role="img" aria-label="esmith443 - Windows tooling, Rust plugins, Discord bots, homelab">
   <title>esmith443</title>
+
+  <style>
+    /* Soft, slow drift on the glows only. The type never moves. */
+    .glow-a {
+      transform-origin: 600px 0px;
+      animation: drift-a 16s ease-in-out infinite alternate;
+    }
+    .glow-b {
+      transform-origin: 960px 24px;
+      animation: drift-b 21s ease-in-out infinite alternate;
+    }
+    .hair {
+      animation: breathe 9s ease-in-out infinite alternate;
+    }
+
+    @keyframes drift-a {
+      from { opacity: 0.75; transform: translateX(-26px) scale(0.96); }
+      to   { opacity: 1;    transform: translateX(26px)  scale(1.09); }
+    }
+    @keyframes drift-b {
+      from { opacity: 0.45; transform: translateX(18px) scale(1.06); }
+      to   { opacity: 1;    transform: translateX(-22px) scale(0.94); }
+    }
+    @keyframes breathe {
+      from { opacity: 0.55; }
+      to   { opacity: 1; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .glow-a, .glow-b, .hair { animation: none; }
+    }
+  </style>
+
   <defs>
     <!-- Base: layered darkness. Lighter violet-navy at the top centre falling to
          near-black, never flat and never pure black. -->
@@ -9,18 +42,19 @@
       <stop offset="100%" stop-color="#050408"/>
     </radialGradient>
 
-    <!-- The one glowing moment. Sits low enough in frame to actually read at
-         banner proportions rather than being cropped off the top edge. -->
-    <radialGradient id="glow" cx="50%" cy="-4%" r="88%">
-      <stop offset="0%" stop-color="#8d7bf2" stop-opacity="0.34"/>
-      <stop offset="45%" stop-color="#8d7bf2" stop-opacity="0.10"/>
-      <stop offset="70%" stop-color="#8d7bf2" stop-opacity="0"/>
+    <!-- The one glowing moment. userSpaceOnUse pins the gradient to the banner's
+         own coordinates, so the oversized host rect (needed so the drift never
+         exposes an edge) cannot re-map and wash it out. -->
+    <radialGradient id="glow" gradientUnits="userSpaceOnUse" cx="600" cy="14" r="600">
+      <stop offset="0%" stop-color="#8d7bf2" stop-opacity="0.40"/>
+      <stop offset="45%" stop-color="#8d7bf2" stop-opacity="0.13"/>
+      <stop offset="75%" stop-color="#8d7bf2" stop-opacity="0"/>
     </radialGradient>
 
     <!-- Secondary, weaker glow off to one side for asymmetry. -->
-    <radialGradient id="glow2" cx="80%" cy="10%" r="52%">
-      <stop offset="0%" stop-color="#b87cf7" stop-opacity="0.16"/>
-      <stop offset="65%" stop-color="#b87cf7" stop-opacity="0"/>
+    <radialGradient id="glow2" gradientUnits="userSpaceOnUse" cx="960" cy="26" r="340">
+      <stop offset="0%" stop-color="#b87cf7" stop-opacity="0.20"/>
+      <stop offset="70%" stop-color="#b87cf7" stop-opacity="0"/>
     </radialGradient>
 
     <!-- Heading ink: off-white falling to translucent. -->
@@ -41,23 +75,32 @@
       <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="3" stitchTiles="stitch"/>
       <feColorMatrix type="saturate" values="0"/>
     </filter>
+
+    <clipPath id="frame">
+      <rect width="1200" height="240"/>
+    </clipPath>
   </defs>
 
-  <rect width="1200" height="240" fill="url(#base)"/>
-  <rect width="1200" height="240" fill="url(#glow)"/>
-  <rect width="1200" height="240" fill="url(#glow2)"/>
-  <rect width="1200" height="240" filter="url(#grain)" opacity="0.035"/>
+  <g clip-path="url(#frame)">
+    <rect width="1200" height="240" fill="url(#base)"/>
 
-  <!-- 1px top-edge light -->
-  <rect width="1200" height="1" fill="#ffffff" opacity="0.10"/>
+    <!-- Oversized so the drift never exposes an edge. -->
+    <rect class="glow-a" x="-180" y="-160" width="1560" height="560" fill="url(#glow)"/>
+    <ellipse class="glow-b" cx="960" cy="24" rx="330" ry="210" fill="url(#glow2)"/>
 
-  <text x="600" y="120" text-anchor="middle" fill="url(#ink)"
-        font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif"
-        font-size="68" font-weight="600" letter-spacing="-1.6">esmith443</text>
+    <rect width="1200" height="240" filter="url(#grain)" opacity="0.035"/>
 
-  <text x="600" y="160" text-anchor="middle" fill="#9a96a8"
-        font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif"
-        font-size="17" letter-spacing="0.4">Windows tooling  ·  Rust plugins  ·  Discord bots  ·  homelab</text>
+    <!-- 1px top-edge light -->
+    <rect width="1200" height="1" fill="#ffffff" opacity="0.10"/>
 
-  <rect x="0" y="239" width="1200" height="1" fill="url(#hair)"/>
+    <text x="600" y="120" text-anchor="middle" fill="url(#ink)"
+          font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif"
+          font-size="68" font-weight="600" letter-spacing="-1.6">esmith443</text>
+
+    <text x="600" y="160" text-anchor="middle" fill="#9a96a8"
+          font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif"
+          font-size="17" letter-spacing="0.4">Windows tooling  ·  Rust plugins  ·  Discord bots  ·  homelab</text>
+
+    <rect class="hair" x="0" y="239" width="1200" height="1" fill="url(#hair)"/>
+  </g>
 </svg>

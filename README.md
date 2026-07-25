@@ -4,11 +4,7 @@
 
 </div>
 
-<div align="center">
-<img src="https://raw.githubusercontent.com/esmith443/esmith443/main/assets/glow-divider.svg" width="100%" alt="" />
-</div>
-
-## Stack
+<img src="https://raw.githubusercontent.com/esmith443/esmith443/main/assets/section-stack.svg" width="100%" alt="Stack" />
 
 <div align="center">
 
@@ -36,23 +32,10 @@
 
 </div>
 
-<div align="center">
-<img src="https://raw.githubusercontent.com/esmith443/esmith443/main/assets/glow-divider.svg" width="100%" alt="" />
-</div>
-
-## Stats
+<img src="https://raw.githubusercontent.com/esmith443/esmith443/main/assets/section-stats.svg" width="100%" alt="Stats" />
 
 <div align="center">
 
-<img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=esmith443&theme=radical&title_color=8D7BF2&text_color=EDECF2&border_color=1E1C26" alt="Profile summary" />
-
-<br>
-
-<img height="200" src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=esmith443&theme=radical&title_color=8D7BF2&text_color=EDECF2&border_color=1E1C26" alt="Repositories per language" />
-<img height="200" src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=esmith443&theme=radical&title_color=8D7BF2&text_color=EDECF2&border_color=1E1C26" alt="Most committed languages" />
-
-<br><br>
-
-<img src="https://streak-stats.demolab.com/?user=esmith443&hide_border=true&disable_animations=true&background=08070C&stroke=1E1C26&ring=8D7BF2&fire=A897FF&currStreakNum=EDECF2&sideNums=EDECF2&currStreakLabel=8D7BF2&sideLabels=9A96A8&dates=6E6A7C" alt="Contribution streak" />
+<img src="https://raw.githubusercontent.com/esmith443/esmith443/main/assets/stats.svg" width="100%" alt="GitHub statistics" />
 
 </div>
