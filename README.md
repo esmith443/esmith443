@@ -108,8 +108,12 @@ plugins, Discord automation, and homelab networking notes.
 
 <div align="center">
 
-<img height="165" src="https://github-readme-stats.vercel.app/api?username=esmith443&show_icons=true&hide_border=true&theme=github_dark&icon_color=58A6FF&title_color=58A6FF&count_private=true&include_all_commits=true" alt="GitHub stats" />
-<img height="165" src="https://github-readme-stats.vercel.app/api/top-langs/?username=esmith443&layout=compact&hide_border=true&theme=github_dark&title_color=58A6FF&langs_count=8" alt="Top languages" />
+<img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=esmith443&theme=github_dark" alt="Profile summary" />
+
+<br>
+
+<img height="200" src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=esmith443&theme=github_dark" alt="Repositories per language" />
+<img height="200" src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=esmith443&theme=github_dark" alt="Most committed languages" />
 
 <br><br>
 
