@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 240" width="1200" height="240" role="img" aria-label="esmith443 - Windows tooling, Rust plugins, Discord bots, homelab">
+  <title>esmith443</title>
+  <defs>
+    <!-- Base: layered darkness. Lighter violet-navy at the top centre falling to
+         near-black, never flat and never pure black. -->
+    <radialGradient id="base" cx="50%" cy="0%" r="120%">
+      <stop offset="0%" stop-color="#131022"/>
+      <stop offset="62%" stop-color="#050408"/>
+      <stop offset="100%" stop-color="#050408"/>
+    </radialGradient>
+
+    <!-- The one glowing moment. Sits low enough in frame to actually read at
+         banner proportions rather than being cropped off the top edge. -->
+    <radialGradient id="glow" cx="50%" cy="-4%" r="88%">
+      <stop offset="0%" stop-color="#8d7bf2" stop-opacity="0.34"/>
+      <stop offset="45%" stop-color="#8d7bf2" stop-opacity="0.10"/>
+      <stop offset="70%" stop-color="#8d7bf2" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Secondary, weaker glow off to one side for asymmetry. -->
+    <radialGradient id="glow2" cx="80%" cy="10%" r="52%">
+      <stop offset="0%" stop-color="#b87cf7" stop-opacity="0.16"/>
+      <stop offset="65%" stop-color="#b87cf7" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Heading ink: off-white falling to translucent. -->
+    <linearGradient id="ink" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="40%" stop-color="#f6f5fa"/>
+      <stop offset="100%" stop-color="#f6f5fa" stop-opacity="0.58"/>
+    </linearGradient>
+
+    <!-- Hairline that glows at its centre. -->
+    <linearGradient id="hair" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#8d7bf2" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#8d7bf2" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="#8d7bf2" stop-opacity="0"/>
+    </linearGradient>
+
+    <!-- Grain, to kill gradient banding and add material. -->
+    <filter id="grain" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="3" stitchTiles="stitch"/>
+      <feColorMatrix type="saturate" values="0"/>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="240" fill="url(#base)"/>
+  <rect width="1200" height="240" fill="url(#glow)"/>
+  <rect width="1200" height="240" fill="url(#glow2)"/>
+  <rect width="1200" height="240" filter="url(#grain)" opacity="0.035"/>
+
+  <!-- 1px top-edge light -->
+  <rect width="1200" height="1" fill="#ffffff" opacity="0.10"/>
+
+  <text x="600" y="120" text-anchor="middle" fill="url(#ink)"
+        font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif"
+        font-size="68" font-weight="600" letter-spacing="-1.6">esmith443</text>
+
+  <text x="600" y="160" text-anchor="middle" fill="#9a96a8"
+        font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif"
+        font-size="17" letter-spacing="0.4">Windows tooling  ·  Rust plugins  ·  Discord bots  ·  homelab</text>
+
+  <rect x="0" y="239" width="1200" height="1" fill="url(#hair)"/>
+</svg>
